@@ -1,0 +1,5 @@
+name: Custom Theme
+description: Custom theme description
+type: theme
+core_version_requirement: ^8 || ^9  || ^10
+base theme: stark
