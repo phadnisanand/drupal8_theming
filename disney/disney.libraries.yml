@@ -1,0 +1,31 @@
+global-styling:
+  version: 1.0
+  css:
+    base:
+      css/application-bfac960f836d.css: {}
+      css/background_styles-1903f7131478.css: {}
+      css/flex_content_hero-78a61b31ba69.css: {}
+      css/flex_grid-263befe9ebc3.css: {}
+      css/catalog-9e6839c22939.css: {}
+      css/slider-a9699399a906.css: {}
+      css/rich_text-fc52ad2df661.css: {}
+      css/application-224514d37171.css: {}
+      css/disneyuschrome-70f85c0e9b2f.css: {}
+      css/disneyuschrome-desktop-8a204be03bba.css: {media: all and (min-width: 769px)}
+      css/disneyuschrome-mobile-9a3a83486e48.css: {media: all and (max-width: 768px)}
+      css/incredibles_search-a03925a98f4d.css: {}
+  js:
+    js/background_styles-988c5423ca62.js: {}
+    js/flex_content_hero-d1a011ca25ee.js: {}
+    js/flex_grid-46fa6ba80583.js: {}
+    js/slider-bbef40363d59.js: {}
+    js/rich_text-5db3da9fd42a.js: {}
+
+header_js:
+  header: true
+  version: 1.0
+  js:
+    js/jquery-dc8b911876ec.js: {}
+    js/dolwebanalytics.js: {}
+    js/head-7e10977e5182.js: {}
+    js/application-53a1ed4232e6.js: {}

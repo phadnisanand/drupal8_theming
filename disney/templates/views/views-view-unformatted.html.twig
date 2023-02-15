@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+
+  <section class="module incredibles_slider slider-view pagination-styles header-center no-border span-full-screen content-span-full-screen primary-theme light" id="ref-1-2" data-module="incredibles_slider" data-title="Movies">
+              <div class="bound movie movie">
+                  <div class="module_header_container">
+                    <div class="module_header no-desc">
+              <div class="title">
+                <h2>  <span>{{ view.getTitle() }}</span>    </h2>
+              </div>
+          </div>
+        </div>
+        <div class="slides peek-5">
+          <ol class="slider-list peek-5" aria-live="polite" style="z-index: 1; position: relative; overflow: hidden;">
+              <li class="slider-page" data-slide-state="active" aria-hidden="false" aria-roledescription="slide" aria-label="undefined | 1 of 1" style="display: block; position: relative; width: 100%; height: 100%; left: 0%; right: auto; top: 0px; opacity: 1; transition-property: transform, visibility; transition-duration: 0ms, 0ms; transition-delay: 0ms, 0ms; visibility: visible; transform: translate3d(0%, 0px, 0px);">
+                <ul class="col-container cols-5 rows-1">
+
+                {% for row in rows %}
+                    <li class="col item">
+                      <div class="entity-container entity-type-movie  ratio-poster links-out corners-default   show-details      ">
+                          <div class="entity-mask">
+                            <a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid.value }) }}" data-core-id="5af57b58e1b0ffe708eccafd" class="entity-link outer-link" aria-label="Luca" data-title="Luca" tabindex="0">
+                                <div class="movie-box entity-box  thumb-border    ">
+                                  <div class="aspect">        <img class="thumb" alt="Luca" data-src="https://lumiere-a.akamaihd.net/v1/images/image_2ff75a5c.jpeg" data-legacy="true" src="{{ row.content['#row']._entity.field_url_link.value|raw }} " />      </div>
+                                </div>
+                            </a>
+                            <div class="entity-details    text-left  ">
+                                <a href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid.value }) }} " class="entity-link title-link show-details" data-title="Luca" tabindex="-1">
+                                  <h3 class="title no_focus"> <span>  {{ row.content['#row']._entity.title.value|raw }}    </span> </h3>
+                                </a>
+                            </div>
+                          </div>
+                      </div>
+                    </li>
+                {% endfor %}
+                
+                </ul>
+              </li>
+          </ol>
+          <div class="peek"></div>
+        </div>
+    </div>
+  </section>

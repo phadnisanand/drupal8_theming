@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+    {% block content %}
+       <div class="bound">
+        <div class="carousel" style="background-color:#000000">
+          <ul class="slides">
+              <li class="slide" data-title="Raya and the Last Dragon Hero Teaser" data-link_cta_index="Raya and the Last Dragon Hero Teaser" data-cto-title="Top_Raya and the Last Dragon_Trailer_" data-cto-category="rld-1">
+                <div class="image-wrapper background-image">
+                    <div class="aspect" style="padding-bottom: 42.87%;">   
+                    <img tabindex="0" data-src="{{ content.field_slide_image.0 }}" id="ref-1-0--img--idx-0" alt="A still image from Raya and the Last Dragon" data-width="2048" data-height="878" data-aspect_ratio="0.4287" data-orientation="landscape" data-legacy="true" src="{{ content.field_slide_image.0 }}"> 
+                    <span class="gradient-overlay  content-center content-bottom" style="background:linear-gradient(0deg,#000 15%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 50%);"></span>    
+                    </div>
+                </div>
+                <div class="content-overlay   content-center content-bottom  text-center   text-light ">
+                    <div class="content-body">
+                      <div class="content-details" style="max-width: 100%;">
+                          <div class="content-title">     
+                              <img class="logo-title" data-src="{{ content.field_slide_image_top.0 }}" alt="Raya and the Last Dragon Logo" tabindex="0" style="width:200px" data-width="400" data-height="170" data-aspect_ratio="0.425" data-orientation="landscape" data-legacy="true" src="{{ content.field_slide_image_top.0 }}">
+                          </div>
+                         
+                          <div class="content-description">
+                            <p>{{ content.field_slide_heading.0 }}</p>
+                          </div>
+                          <p class="cta-links-container text-center  " data-cta-type="button">   <span class="cta-item"> <span class="btn-container">  <a href="" class="button large blue cta-link ada-el-focus    native-video " role="button" aria-label="WATCH TRAILER">{{ content.field_cta_link.0 }}</a> </span> </span>  </p>
+                      </div>
+                    </div>
+                </div>
+              </li>
+          </ul>
+        </div>
+    </div>
+    {% endblock %}
+{% endblock paragraph %}
+
+  
+ 

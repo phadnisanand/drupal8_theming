@@ -1,0 +1,14 @@
+name: Disney Theme
+description: Custom theme description
+type: theme
+core_version_requirement: ^9 || ^10
+base theme: false
+libraries:
+  - disney/global-styling
+  - disney/header_js
+regions:
+  header: Header
+  footer: Footer
+  hero: 'Hero Slider'
+  content: Content
+  content_below: 'Content Below'

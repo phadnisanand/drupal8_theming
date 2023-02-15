@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Olivero theme.
+ */
+
+ // File: THEMENAME.theme in your theme's root directory
+function disney_preprocess(&$variables, $hook)
+{
+    $variables['base_path'] = base_path();
+}
+
+function disney_preprocess_menu(&$variables)
+{
+    $variables['base_path'] = base_path();
+    $site_config = \Drupal::config('system.site');
+    $variables['site_name'] = $site_config->get('name');
+    $variables['site_slogan'] = $site_config->get('slogan');
+    $variables['frontpage'] = $site_config->get('page.front');
+    $logo = \Drupal::theme()->getActiveTheme()->getLogo();
+    global $theme_key;
+    $logo_url = theme_get_setting('logo', $theme_key);
+    $variables['site_logo'] = $logo_url['url'];
+    $variables['logopath'] =  \Drupal::config('disney.settings')->get('logo.path');
+    
+}
